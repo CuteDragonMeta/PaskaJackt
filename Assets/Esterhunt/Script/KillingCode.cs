@@ -4,23 +4,11 @@ using UnityEngine;
 
 public class KillingCode : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject Explosion;
-    [SerializeField]
-    private GameObject Enemy;
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (Vector3.Distance (Explosion.transform.position, Enemy.transform.position) <= 3)
-        {
-            //Do something because the distance is less or equal than 3   
-            Debug.Log("HIT");
-            Destroy(Enemy);
-            // Time.timeScale = 1.0f;
-            StartCoroutine(settles(3f, Explosion));
-        } else{
-            // Time.timeScale =1.0f;
-            StartCoroutine(settles(3f, Explosion));
+    void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.tag == "Bomb"){
+            Debug.Log("Hit");
+            Destroy(collision.gameObject);
+            settles(3f, gameObject);
         }
     }
 

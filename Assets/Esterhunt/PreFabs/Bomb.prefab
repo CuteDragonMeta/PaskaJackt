@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e48ae1e98cb4d48bbc104c91b256bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 48561626769909925, guid: c942a9d7f25863248af5706b87c69e69, type: 3}
+  DebriPrefab: {fileID: 48561626769909925, guid: c942a9d7f25863248af5706b87c69e69, type: 3}
 --- !u!54 &6289656710480434909
 Rigidbody:
   m_ObjectHideFlags: 0
