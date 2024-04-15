@@ -10,6 +10,8 @@ public class Bomb : MonoBehaviour
 
     [SerializeField]
     private GameObject DebriPrefab;
+    [SerializeField]
+    private float Radius;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -22,7 +24,9 @@ public class Bomb : MonoBehaviour
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
             if(rb != null){
                 Debug.Log("Exposion");
-                rb.AddExplosionForce(Random.Range(10f, 100f),Center , 3, 0.0f, ForceMode.Force);
+                Debug.Log(gameObject);
+                rb.AddExplosionForce(Random.Range(10f, 100f),Center, Radius);
+                // rb.AddExplosionForce(Random.Range(10f, 100f),Center , Radius, 0.0f, ForceMode.Force);
             }
             Destroy(gameObject);
         }
