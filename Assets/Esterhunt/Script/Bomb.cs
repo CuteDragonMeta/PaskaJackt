@@ -20,12 +20,14 @@ public class Bomb : MonoBehaviour
             Quaternion rotation = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 Center = contact.point;
             GameObject debriPart = Instantiate(DebriPrefab, Center, rotation);
-
-            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            if(rb != null){
-                Debug.Log("Exposion");
-                Debug.Log(gameObject);
-                rb.AddExplosionForce(Random.Range(10f, 100f),Center, Radius);
+            Collider[] colliders = Physics.OverlapSphere(Center, Radius);
+            
+            foreach (Collider hit in colliders){
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+                if(rb != null){
+                        Debug.Log("Exposion");
+                        rb.AddExplosionForce(Random.Range(80f, 120f),Center, Radius);
+                    }
                 // rb.AddExplosionForce(Random.Range(10f, 100f),Center , Radius, 0.0f, ForceMode.Force);
             }
             Destroy(gameObject);

@@ -7,9 +7,8 @@ public class KillingCode : MonoBehaviour
     void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "Bomb"){
             Debug.Log("Hit");
-            Debug.Log(gameObject);
             Destroy(gameObject);
-            settles(3f, gameObject);
+            settles(3f, collision.gameObject);
         }
     }
 

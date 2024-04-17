@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebriPrefab: {fileID: 48561626769909925, guid: c942a9d7f25863248af5706b87c69e69, type: 3}
+  Radius: 4
 --- !u!54 &6289656710480434909
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7238541036389320025}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
