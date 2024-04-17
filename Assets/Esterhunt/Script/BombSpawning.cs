@@ -15,14 +15,12 @@ public class BombSpawning : MonoBehaviour
     
 
 
-    void Update()
+    public void ThrowBomb()
     {
-
         if(Pressed == true){
             
             Instantiate(Bomb,Bomb.transform.localPosition + new Vector3(0,0.5f,0), quaternion.identity);
             Pressed = false;
-
         }
     }
     private void CreateBomb(){
