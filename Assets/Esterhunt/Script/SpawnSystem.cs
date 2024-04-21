@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.XR.GoogleVr;
 using UnityEngine;
 
 public class SpawnSystem : MonoBehaviour
@@ -7,11 +9,25 @@ public class SpawnSystem : MonoBehaviour
     public GameObject[] SpawnPoints;
     [SerializeField]
     private GameObject Enemy;
+
+    public const int SecondsInMinutes = 60;
+    public float MinutesDuration = 180f;
+
+    public float totalTime = 0f;
+    public float currentTime = 0f;
     // Start is called before the first frame update
-    void Start()
-    {
-        SpawnObjects();
+
+    void Update(){
+        totalTime += Time.deltaTime;
+        currentTime = totalTime %  MinutesDuration;
+        
+        if(currentTime >= MinutesDuration){
+            Debug.Log("Spawn");
+            SpawnObjects();
+        }
+        
     }
+
 
     void SpawnObjects(){
         List<GameObject> tempSpawnPoints = new List<GameObject>();
@@ -26,4 +42,10 @@ public class SpawnSystem : MonoBehaviour
             }
         }
         }
+
+        IEnumerator SpawnTimer(float x){
+            yield return new WaitForSeconds(x);
+            SpawnObjects();
+        }
+
 }
