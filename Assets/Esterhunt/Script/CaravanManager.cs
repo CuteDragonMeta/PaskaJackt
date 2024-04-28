@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CaravanManager : MonoBehaviour
 {
-
+    private float fixedRotation = 0;
     [SerializeField]
     private int C_Speed;
     public Rigidbody C_Rigidbody;
@@ -20,6 +20,9 @@ public class CaravanManager : MonoBehaviour
     void Update()
     {
         C_Rigidbody.velocity = new Vector3(C_Speed,0,0);
+        Vector3 eulerAngles = transform.eulerAngles;
+		transform.eulerAngles = new Vector3( eulerAngles.x , fixedRotation , eulerAngles.z );
+        
     }
 
     void OnTriggerEnter(Collider collider){
