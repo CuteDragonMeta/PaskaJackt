@@ -24,8 +24,7 @@ public class Bomb : MonoBehaviour
             
             foreach (Collider hit in colliders){
             Rigidbody rb = hit.GetComponent<Rigidbody>();
-                if(rb != null){
-                        Debug.Log("Exposion");
+                if(rb != null && gameObject.tag != "Caravan"){
                         rb.AddExplosionForce(Random.Range(80f, 120f),Center, Radius);
                     }
                 // rb.AddExplosionForce(Random.Range(10f, 100f),Center , Radius, 0.0f, ForceMode.Force);

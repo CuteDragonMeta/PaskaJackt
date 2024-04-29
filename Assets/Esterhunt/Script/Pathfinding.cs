@@ -12,11 +12,14 @@ public class Pathfinding : MonoBehaviour
 
     public GameObject target;
 
+
+
     void Start(){
         target = GameObject.Find("Caravan");
     }
     void Update()
     {
+        
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,target.transform.position , speed);
     }
 
